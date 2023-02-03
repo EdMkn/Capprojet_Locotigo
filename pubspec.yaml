@@ -22,6 +22,7 @@ dependencies:
   dropdown_button2: ^1.4.0
   dropdown_formfield: ^0.1.4
   url_launcher: ^6.1.8
+  maps_launcher: ^2.0.1
 
     
 
@@ -60,6 +61,7 @@ flutter:
     - assets/images/logo9.png
     - assets/images/Gmaillogo.png
     - assets/images/facebooklogo.png
+    - assets/images/gmail3.png
   #  - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

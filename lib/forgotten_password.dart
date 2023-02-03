@@ -3,6 +3,7 @@ import 'dart:async';
 import 'main.dart';
 import 'create_account_next.dart';
 import 'login.dart';
+import 'Map.dart';
 
 class Page7 extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();

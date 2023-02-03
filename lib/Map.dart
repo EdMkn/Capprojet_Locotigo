@@ -1,15 +1,41 @@
-import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter/material.dart';
 
-class MapUtils {
-  MapUtils._();
+import 'package:maps_launcher/maps_launcher.dart';
 
-  static Future<void> openMap(double latitude, double longitude) async {
-    String googleUrl =
-        'https://www.google.com/maps/search/?api=1&query=$latitude,$longitude';
-    if (await canLaunch(googleUrl)) {
-      await launch(googleUrl);
-    } else {
-      throw 'Could not open the map.';
-    }
+class Map extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text(
+            'Maps',
+          ),
+        ),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              ElevatedButton(
+                onPressed: () => MapsLauncher.launchQuery(
+                    'store that sells farm products in France'),
+                child: Text('LAUNCH QUERY'),
+              ),
+              SizedBox(height: 32),
+              ElevatedButton(
+                onPressed: () =>
+                    MapsLauncher.launchCoordinates(48.8566, 2.3522),
+                child: Text('LAUNCH COORDINATES'),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }

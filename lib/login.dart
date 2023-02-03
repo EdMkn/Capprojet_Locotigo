@@ -97,57 +97,34 @@ class Login extends StatelessWidget {
                 )),
             SizedBox(
               //Use of SizedBox
-              height: 60,
+              height: 40,
             ),
             Text(
               "Où se connecter avec",
               style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
             ),
+            /////////////////////////////////
+
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Expanded(
-                  child: Column(
-                    children: <Widget>[
-                      SizedBox.fromSize(
-                        size: Size(20, 20), // button width and height
-
-                        child: Material(
-                          child: InkWell(
-                            onTap: () {}, // button pressed
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: <Widget>[
-                                Image.asset('assets/images/Gmaillogo.png'),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Expanded(
-                  child: Column(
-                    children: <Widget>[
-                      SizedBox.fromSize(
-                        size: Size(22, 22), // button width and height
-
-                        child: Material(
-                          child: InkWell(
-                            onTap: () {}, // button pressed
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: <Widget>[
-                                Image.asset('assets/images/facebooklogo.png'),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+                // Image tapped
+                InkWell(
+                    onTap: () {},
+                    child: Image.network(
+                      'https://img.icons8.com/3d-fluency/94/null/gmail.png',
+                      width: 50,
+                      height: 50,
+                      fit: BoxFit.cover,
+                    )),
+                InkWell(
+                    onTap: () {},
+                    child: Image.network(
+                      'https://img.icons8.com/color/48/null/facebook.png',
+                      width: 54,
+                      height: 53,
+                      fit: BoxFit.cover,
+                    )),
               ],
             ),
           ],
