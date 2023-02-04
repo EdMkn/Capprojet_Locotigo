@@ -4,7 +4,7 @@
   <img width="400" height="300" src="https://github.com/srikanthsc/Capprojet/blob/bckend/assets/images/locotigo.png">
 </p>
 
-## Développeur
+## Développeurs
 - Srikanth COLLATY
 - Sylvain BUI
 - Mehdi NAJMI
