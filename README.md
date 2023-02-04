@@ -1,6 +1,8 @@
-# Cap Projet
+# Projet Locotigo                 
 
-A new Flutter project created with https://flutlab.io
+<p align="center">
+  <img width="400" height="300" src="https://github.com/srikanthsc/Capprojet/blob/bckend/assets/images/locotigo.png">
+</p>
 
 ## Getting Started
 
