@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 import 'dart:async';
 import 'login.dart';
+import 'package:helloworld/create_account.dart';
+import 'password.dart';
+import 'Map.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -39,7 +42,13 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       // A widget which will be started on application startup
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      routes: {
+        '/': (context) => const MyHomePage(title: 'Flutter Demo Home Page'),
+        '/inscription': (context) => Page3(),
+        '/connexion': (context) => Login(),
+        '/passeport': (context) => Page6(),
+      },
+      initialRoute: '/',
     );
   }
 }
