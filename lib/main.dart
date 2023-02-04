@@ -17,8 +17,8 @@ void main() async {
         'message', 'Hey ! First message from Flutter. Parse is now connected');
   await firstObject.save();
   
-  print('done');
-  //runApp(MyApp());
+  //print('done');
+  runApp(MyApp());
 } 
 
 class MyApp extends StatelessWidget {
