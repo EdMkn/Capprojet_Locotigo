@@ -1,8 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 import 'dart:async';
 import 'login.dart';
 
-void main() => runApp(MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  final keyApplicationId = 'NLIO024azfH9pJrmOu6UblCeAxjqfJEQP6yf8n7o';
+  final keyClientKey = 'i3AK1t4plvFcNjabmp080R5Jx4ourbkZyybaMvTw';
+  final keyParseServerUrl = 'https://parseapi.back4app.com';
+
+   var firstObject = ParseObject('FirstClass')
+    ..set(
+        'message', 'Hey ! First message from Flutter. Parse is now connected');
+  await firstObject.save();
+  
+  print('done');
+  //runApp(MyApp());
+} 
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
