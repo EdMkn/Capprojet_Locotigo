@@ -4,6 +4,12 @@
   <img width="400" height="300" src="https://github.com/srikanthsc/Capprojet/blob/bckend/assets/images/locotigo.png">
 </p>
 
+## Développeur
+- Srikanth COLLATY
+- Sylvain BUI
+- Mehdi NAJMI
+- Manyim Ma MAKON
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
