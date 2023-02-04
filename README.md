@@ -5,10 +5,10 @@
 </p>
 
 ## Développeur
-- [Srikanth COLLATY]
-- [Sylvain BUI]
-- [Mehdi NAJMI]
-- [Manyim Ma MAKON]
+- Srikanth COLLATY
+- Sylvain BUI
+- Mehdi NAJMI
+- Manyim Ma MAKON
 
 ## Getting Started
 
