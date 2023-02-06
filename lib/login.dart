@@ -17,6 +17,7 @@ class Login extends StatelessWidget {
             Align(
                 alignment: Alignment.topRight,
                 child: Image.asset("assets/images/LOGO4.png", height: 45)),
+
             const Text(
               "Connexion",
               style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),

@@ -18,6 +18,26 @@ class Page6 extends StatelessWidget {
             Align(
                 alignment: Alignment.topRight,
                 child: Image.asset("assets/images/LOGO4.png", height: 45)),
+            Row(
+              children: [
+                SizedBox(
+                  //Use of SizedBox
+                  width: 20,
+                ),
+                // Image tapped
+                InkWell(
+                    onTap: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Login()),
+                        ),
+                    child: Image.network(
+                      'https://img.icons8.com/ios-filled/50/null/chevron-left.png',
+                      width: 12,
+                      height: 12,
+                      fit: BoxFit.cover,
+                    )),
+              ],
+            ),
             SizedBox(
               //Use of SizedBox
               height: 90,
