@@ -19,6 +19,7 @@ class _Page3State extends State<Page3> {
   String pswd = '';
   String adresse = '';
   String email = '';
+  bool checkboxValue = false;
 
   validationForm() {
     if (_formKey.currentState != null) {
@@ -28,11 +29,15 @@ class _Page3State extends State<Page3> {
         debugPrint('$pswd');
         debugPrint('$adresse');
         debugPrint('$email');
+        debugPrint('$checkboxValue');
         _formKey.currentState!.reset();
-        Navigator.push(context,
-            MaterialPageRoute(builder: (BuildContext context) {
-          return Page4();
-        }));
+        if (checkboxValue)
+          Navigator.push(context,
+              MaterialPageRoute(builder: (BuildContext context) {
+            return Page4();
+          }));
+        else
+          Navigator.pushNamed(context, '/connexion');
       } else {
         debugPrint('Error...');
       }
@@ -142,6 +147,7 @@ class _Page3State extends State<Page3> {
                   hintText: 'Mot de passe',
                 ),
                 keyboardType: TextInputType.text,
+                obscureText: true,
                 onSaved: (val) => pswd = val ?? '',
               ),
               SizedBox(
@@ -171,8 +177,13 @@ class _Page3State extends State<Page3> {
                   hintText: 'Entrez le nouveau mot de passe a nouveau',
                 ),
                 keyboardType: TextInputType.text,
-                validator: (val) =>
-                    pswd != val ? "Les mots de passe sont differents" : null,
+                obscureText: true,
+                validator: (val) {
+                  //debugPrint(identical(val ?? '', pswd).toString());
+                  !identical(val ?? '', pswd)
+                      ? "Les mots de passe sont differents"
+                      : null;
+                },
               ),
               SizedBox(
                 //Use of SizedBox
@@ -229,16 +240,16 @@ class _Page3State extends State<Page3> {
                   border: OutlineInputBorder(),
                   hintText: 'Adresse e-mail',
                 ),
-                keyboardType: TextInputType.text,
+                keyboardType: TextInputType.emailAddress,
                 autocorrect: true,
                 autofocus: true,
                 onSaved: (val) => email = val ?? '',
-                obscureText: true,
               ),
               SizedBox(
                 //Use of SizedBox
                 height: 10,
               ),
+              /*
               Text(
                 "êtes-vous un producteur ?",
                 style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
@@ -258,20 +269,39 @@ class _Page3State extends State<Page3> {
                   value: this.valuefirst,
                   onChanged: (bool? value) {},
                 ),
-                SizedBox(
-                  width: 30,
-                ),
-                Text(
-                  'Non ',
-                  style: TextStyle(fontSize: 17.0),
-                ),
-                Checkbox(
-                  checkColor: Colors.greenAccent,
-                  activeColor: Colors.red,
-                  value: this.valuefirst,
-                  onChanged: (bool? value) {},
-                ),
-              ]),
+                ]),
+                */
+              FormField<bool>(
+                builder: (state) {
+                  return Column(
+                    children: <Widget>[
+                      Row(
+                        children: <Widget>[
+                          Checkbox(
+                              value: checkboxValue,
+                              onChanged: (value) {
+                                setState(() {
+//save checkbox value to variable that store terms and notify form that state changed
+                                  checkboxValue = value ?? checkboxValue;
+                                  state.didChange(value);
+                                });
+                              }),
+                          Text('Je suis un producteur'),
+                        ],
+                      ),
+//display error in matching theme
+                      Text(
+                        state.errorText ?? '',
+                        style: TextStyle(
+                          color: Theme.of(context).errorColor,
+                        ),
+                      )
+                    ],
+                  );
+                },
+//output from validation will be displayed in state.errorText (above)
+              ),
+
               SizedBox(
                 height: 25,
               ),
