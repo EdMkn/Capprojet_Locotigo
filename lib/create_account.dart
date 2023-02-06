@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 import 'dart:async';
 import 'main.dart';
 import 'create_account_next.dart';
@@ -36,14 +37,26 @@ class _Page3State extends State<Page3> {
               MaterialPageRoute(builder: (BuildContext context) {
             return Page4();
           }));
-        else
+        else {
+          saveTodo("test1");
           Navigator.pushNamed(context, '/connexion');
+        }
       } else {
         debugPrint('Error...');
       }
     } else {
       debugPrint('impossible');
     }
+  }
+
+  Future<void> saveTodo(String title) async {
+    final todo = ParseObject('client')
+      ..set('username', username)
+      ..set('password', pswd)
+      ..set('adresse', adresse)
+      ..set('email', email)
+      ..set('isProd', checkboxValue);
+    await todo.save();
   }
 
   /*void addToDo() async {
@@ -59,9 +72,7 @@ class _Page3State extends State<Page3> {
       todoController.clear();
     });
   }
-  Future<void> saveTodo(String title) async {
-    await Future.delayed(Duration(seconds: 1), () {});
-  }
+  
 
   Future<List<ParseObject>> getTodo() async {
     await Future.delayed(Duration(seconds: 2), () {});
