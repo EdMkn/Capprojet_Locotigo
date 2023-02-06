@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:helloworld/create_account.dart';
 import 'package:helloworld/login.dart';
 import 'dart:async';
 import 'main.dart';
@@ -18,6 +19,26 @@ class Page4 extends StatelessWidget {
             Align(
                 alignment: Alignment.topRight,
                 child: Image.asset("assets/images/LOGO4.png", height: 45)),
+            Row(
+              children: [
+                SizedBox(
+                  //Use of SizedBox
+                  width: 20,
+                ),
+                // Image tapped
+                InkWell(
+                    onTap: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Page3()),
+                        ),
+                    child: Image.network(
+                      'https://img.icons8.com/ios-filled/50/null/chevron-left.png',
+                      width: 12,
+                      height: 12,
+                      fit: BoxFit.cover,
+                    )),
+              ],
+            ),
             Text(
               "Création du compte",
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),

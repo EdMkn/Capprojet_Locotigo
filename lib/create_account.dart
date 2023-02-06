@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 import 'main.dart';
 import 'create_account_next.dart';
+import 'login.dart';
 
 class Page3 extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
@@ -19,13 +20,33 @@ class Page3 extends StatelessWidget {
             Align(
                 alignment: Alignment.topRight,
                 child: Image.asset("assets/images/LOGO4.png", height: 45)),
+            Row(
+              children: [
+                SizedBox(
+                  //Use of SizedBox
+                  width: 20,
+                ),
+                // Image tapped
+                InkWell(
+                    onTap: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Login()),
+                        ),
+                    child: Image.network(
+                      'https://img.icons8.com/ios-filled/50/null/chevron-left.png',
+                      width: 12,
+                      height: 12,
+                      fit: BoxFit.cover,
+                    )),
+              ],
+            ),
             Text(
               "Création du compte",
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             SizedBox(
               //Use of SizedBox
-              height: 30,
+              height: 20,
             ),
             Row(
               children: const [
