@@ -38,7 +38,7 @@ class _Page3State extends State<Page3> {
             return Page4();
           }));
         else {
-          saveTodo("test1");
+          saveInscription("test1");
           Navigator.pushNamed(context, '/connexion');
         }
       } else {
@@ -49,7 +49,7 @@ class _Page3State extends State<Page3> {
     }
   }
 
-  Future<void> saveTodo(String title) async {
+  Future<void> saveInscription(String title) async {
     final todo = ParseObject('client')
       ..set('username', username)
       ..set('password', pswd)
