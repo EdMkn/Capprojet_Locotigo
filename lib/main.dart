@@ -1,8 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 import 'dart:async';
 import 'login.dart';
+import 'package:helloworld/create_account.dart';
+import 'password.dart';
+import 'Map.dart';
 
-void main() => runApp(MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  final keyApplicationId = 'NLIO024azfH9pJrmOu6UblCeAxjqfJEQP6yf8n7o';
+  final keyClientKey = 'i3AK1t4plvFcNjabmp080R5Jx4ourbkZyybaMvTw';
+  final keyParseServerUrl = 'https://parseapi.back4app.com';
+
+  await Parse().initialize(keyApplicationId, keyParseServerUrl,
+      clientKey: keyClientKey, autoSendSessionId: true);
+
+   var firstObject = ParseObject('FirstClass')
+    ..set(
+        'message', 'Hey ! First message from Flutter. Parse is now connected');
+  await firstObject.save();
+  
+  //print('done');
+  runApp(MyApp());
+} 
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -22,7 +42,13 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       // A widget which will be started on application startup
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      routes: {
+        '/': (context) => const MyHomePage(title: 'Flutter Demo Home Page'),
+        '/inscription': (context) => Page3(),
+        '/connexion': (context) => Login(),
+        '/passeport': (context) => Page6(),
+      },
+      initialRoute: '/',
     );
   }
 }
