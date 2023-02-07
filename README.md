@@ -17,7 +17,7 @@
 ## Pages Mobile
 
 <table><tr><td>
-    <img src="https://github.com/srikanthsc/img-Capprojet/blob/main/Capture.PNG" />
+    <img src="https://github.com/srikanthsc/img-Capprojet/blob/main/Capture.PNG" /></br>
   <img src="https://github.com/srikanthsc/img-Capprojet/blob/main/Capture.PNG" />
 </td></tr></table>
 
