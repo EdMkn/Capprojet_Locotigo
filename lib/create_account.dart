@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:toggle_switch/toggle_switch.dart';
 import 'dart:async';
+import 'login.dart';
 import 'main.dart';
 import 'create_account_next.dart';
-import 'login.dart';
 
 class Page3 extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
@@ -46,7 +47,7 @@ class Page3 extends StatelessWidget {
             ),
             SizedBox(
               //Use of SizedBox
-              height: 20,
+              height: 30,
             ),
             Row(
               children: const [
@@ -193,39 +194,31 @@ class Page3 extends StatelessWidget {
               //Use of SizedBox
               height: 10,
             ),
-            Text(
-              "êtes-vous un producteur ?",
-              style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-              textAlign: TextAlign.center,
+            Center(
+              child: Row(
+                children: [
+                  Text(
+                    "êtes-vous un producteur ?",
+                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                    textAlign: TextAlign.center,
+                  ),
+                  SizedBox(
+                    width: 20,
+                  ),
+                  ToggleSwitch(
+                    initialLabelIndex: 0,
+                    totalSwitches: 2,
+                    labels: [
+                      'Yes',
+                      'No',
+                    ],
+                    onToggle: (index) {
+                      print('switched to: $index');
+                    },
+                  ),
+                ],
+              ),
             ),
-            Row(children: <Widget>[
-              SizedBox(
-                width: 105,
-              ),
-              Text(
-                'Oui ',
-                style: TextStyle(fontSize: 17.0),
-              ),
-              Checkbox(
-                checkColor: Colors.greenAccent,
-                activeColor: Colors.red,
-                value: this.valuefirst,
-                onChanged: (bool? value) {},
-              ),
-              SizedBox(
-                width: 30,
-              ),
-              Text(
-                'Non ',
-                style: TextStyle(fontSize: 17.0),
-              ),
-              Checkbox(
-                checkColor: Colors.greenAccent,
-                activeColor: Colors.red,
-                value: this.valuefirst,
-                onChanged: (bool? value) {},
-              ),
-            ]),
             SizedBox(
               height: 25,
             ),
