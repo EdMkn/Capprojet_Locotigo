@@ -303,8 +303,8 @@ class _Page3State extends State<Page3> {
                     ],
                     onToggle: (index) {
                       print('switched to: $index');
-                      if (index==0) checkboxValue =false;
-                      else if(index==1) checkboxValue = true;
+                      if (index==1) checkboxValue =false;
+                      else if(index==0) checkboxValue = true;
                     },
                   ),
                 ],
