@@ -93,39 +93,38 @@ class _Page3State extends State<Page3> {
               Align(
                   alignment: Alignment.topRight,
                   child: Image.asset("assets/images/LOGO4.png", height: 45)),
-            Row(
-              children: [
-                SizedBox(
-                  //Use of SizedBox
-                  width: 20,
-                ),
-                // Image tapped
-                InkWell(
-                    onTap: () => Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => Login()),
-                        ),
-                    child: Image.network(
-                      'https://img.icons8.com/ios-filled/50/null/chevron-left.png',
-                      width: 12,
-                      height: 12,
-                      fit: BoxFit.cover,
-                    )),
-              ],
-            ),
-            Text(
-              "Création du compte",
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            ),
-            SizedBox(
-              //Use of SizedBox
-              height: 30,
-            ),
-            Row(
-              children: const [
-                SizedBox(
-                  width: 10, //<-- SEE HERE
-                
+              Row(
+                children: [
+                  SizedBox(
+                    //Use of SizedBox
+                    width: 20,
+                  ),
+                  // Image tapped
+                  InkWell(
+                      onTap: () => Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Login()),
+                          ),
+                      child: Image.network(
+                        'https://img.icons8.com/ios-filled/50/null/chevron-left.png',
+                        width: 12,
+                        height: 12,
+                        fit: BoxFit.cover,
+                      )),
+                ],
+              ),
+              Text(
+                "Création du compte",
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+              SizedBox(
+                //Use of SizedBox
+                height: 30,
+              ),
+              Row(
+                children: const [
+                  SizedBox(
+                    width: 10, //<-- SEE HERE
                   ),
                   Align(
                     alignment: Alignment.center,
@@ -279,38 +278,40 @@ class _Page3State extends State<Page3> {
                 autofocus: true,
                 onSaved: (val) => email = val ?? '',
               ),
-            SizedBox(
-              //Use of SizedBox
-              height: 10,
-            ),
-            Center(
-              child: Row(
-                children: [
-                  Text(
-                    "êtes-vous un producteur ?",
-                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-                    textAlign: TextAlign.center,
-                  ),
-                  SizedBox(
-                    width: 20,
-                  ),
-                  ToggleSwitch(
-                    initialLabelIndex: 0,
-                    totalSwitches: 2,
-                    labels: [
-                      'Yes',
-                      'No',
-                    ],
-                    onToggle: (index) {
-                      print('switched to: $index');
-                      if (index==1) checkboxValue =false;
-                      else if(index==0) checkboxValue = true;
-                    },
-                  ),
-                ],
+              SizedBox(
+                //Use of SizedBox
+                height: 10,
               ),
-            ),
-            /*FormField<bool>(
+              Center(
+                child: Row(
+                  children: [
+                    Text(
+                      "êtes-vous un producteur ?",
+                      style:
+                          TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                      textAlign: TextAlign.center,
+                    ),
+                    SizedBox(
+                      width: 20,
+                    ),
+                    ToggleSwitch(
+                      initialLabelIndex: 0,
+                      totalSwitches: 2,
+                      labels: [
+                        'Yes',
+                        'No',
+                      ],
+                      onToggle: (index) {
+                        print('switched to: $index');
+                        if (index == 0)
+                          checkboxValue = true;
+                        else if (index == 1) checkboxValue = false;
+                      },
+                    ),
+                  ],
+                ),
+              ),
+              /*FormField<bool>(
                 builder: (state) {
                   return Column(
                     children: <Widget>[
@@ -340,16 +341,16 @@ class _Page3State extends State<Page3> {
                 },
 //output from validation will be displayed in state.errorText (above)
               ),*/
-            SizedBox(
-              height: 25,
-            ),
-            ElevatedButton(
-              onPressed: validationForm,
-              child: Text('Suivant'),
-              style: ElevatedButton.styleFrom(
-                  shape: StadiumBorder(), primary: Color(0xe2ff1e00)),
-            ),
-          ],
+              SizedBox(
+                height: 25,
+              ),
+              ElevatedButton(
+                onPressed: validationForm,
+                child: Text('Suivant'),
+                style: ElevatedButton.styleFrom(
+                    shape: StadiumBorder(), primary: Color(0xe2ff1e00)),
+              ),
+            ],
           ),
         ),
       ),
