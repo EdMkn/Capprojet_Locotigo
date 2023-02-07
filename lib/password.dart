@@ -1,3 +1,4 @@
+import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'main.dart';
@@ -6,6 +7,17 @@ import 'forgotten_password.dart';
 
 class Page6 extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
+  TextEditingController inputcontroller = TextEditingController();
+
+  bool valide = false;
+
+  void Validate(String email) {
+    bool isvalid = EmailValidator.validate(email);
+    print(isvalid);
+    if (isvalid) {
+      valide = true;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,9 +62,12 @@ class Page6 extends StatelessWidget {
               //Use of SizedBox
               height: 90,
             ),
-            const Padding(
+            Padding(
               padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
               child: TextField(
+                controller: inputcontroller,
+                keyboardType: TextInputType.multiline,
+                maxLines: null,
                 decoration: InputDecoration(
                   filled: true, //<-- SEE HERE
                   fillColor: Color(0xffffffff),
@@ -71,15 +86,18 @@ class Page6 extends StatelessWidget {
               //Use of SizedBox
               height: 40,
             ),
-            new SizedBox(
+            SizedBox(
               width: 300,
               height: 40,
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (BuildContext context) {
-                    return Page7();
-                  }));
+                  Validate(inputcontroller.text);
+                  if (valide) {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (BuildContext context) {
+                      return Page7();
+                    }));
+                  }
                 },
                 child: Text('Envoyé'),
                 style: ElevatedButton.styleFrom(

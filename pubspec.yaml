@@ -23,6 +23,8 @@ dependencies:
   dropdown_formfield: ^0.1.4
   url_launcher: ^6.1.8
   maps_launcher: ^2.0.1
+  toggle_switch: ^1.2.0
+  email_validator: '^2.1.16'
 
     
 
