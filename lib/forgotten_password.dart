@@ -6,6 +6,7 @@ import 'create_account_next.dart';
 import 'login.dart';
 import 'Map.dart';
 
+///Page dédiée aux mots de passe oubliés
 class Page7 extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
 

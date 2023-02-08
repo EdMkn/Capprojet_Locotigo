@@ -6,34 +6,44 @@ import 'login.dart';
 import 'main.dart';
 import 'create_account_next.dart';
 
+/// Page de creation de compte client
 class Page3 extends StatefulWidget {
   @override
   _Page3State createState() => _Page3State();
 }
 
+/// Controle de creation de compte client
 class _Page3State extends State<Page3> {
+  /// cle de formulaire
   final _formKey = GlobalKey<FormState>();
   bool valuefirst = false;
   bool valuesecond = false;
   bool isChecked = false;
-  final todoController = TextEditingController();
+  //final todoController = TextEditingController();
 
   String username = '';
   String pswd = '';
   String adresse = '';
   String email = '';
+  /// Verifie si l'utilisateur est client ou producteur
   bool checkboxValue = false;
 
+  ///Permet d'envoyer le client dans la base de données
   validationForm() {
+    //si [_formkey] est non nul
     if (_formKey.currentState != null) {
+      //si formkey est validé
       if (_formKey.currentState!.validate()) {
         _formKey.currentState!.save();
+
         debugPrint('$username');
         debugPrint('$pswd');
         debugPrint('$adresse');
         debugPrint('$email');
         debugPrint('$checkboxValue');
+
         _formKey.currentState!.reset();
+        
         if (checkboxValue)
           Navigator.push(context,
               MaterialPageRoute(builder: (BuildContext context) {
@@ -51,6 +61,7 @@ class _Page3State extends State<Page3> {
     }
   }
 
+  ///Enregistre le compte créé dans la bdd
   Future<void> saveInscription(String title) async {
     final todo = ParseObject('client')
       ..set('username', username)

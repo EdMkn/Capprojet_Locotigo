@@ -6,24 +6,29 @@ import 'package:helloworld/create_account.dart';
 import 'password.dart';
 import 'Map.dart';
 
+/// Permet la mise en marche de l'application
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final keyApplicationId = 'NLIO024azfH9pJrmOu6UblCeAxjqfJEQP6yf8n7o';
   final keyClientKey = 'i3AK1t4plvFcNjabmp080R5Jx4ourbkZyybaMvTw';
   final keyParseServerUrl = 'https://parseapi.back4app.com';
 
+  //connexion au serveur
   await Parse().initialize(keyApplicationId, keyParseServerUrl,
       clientKey: keyClientKey, autoSendSessionId: true);
 
-   var firstObject = ParseObject('FirstClass')
+   /*var firstObject = ParseObject('FirstClass')
     ..set(
         'message', 'Hey ! First message from Flutter. Parse is now connected');
-  await firstObject.save();
+  await firstObject.save(); */
   
   //print('done');
   runApp(MyApp());
 } 
 
+/// Cette classe represente la racine de l'application
+/// 
+/// Ici on retrouve les routes vers les differentes pages
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
@@ -52,7 +57,7 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
+/// Représente la première page qui s'affiche au lancement de l'application
 class MyHomePage extends StatelessWidget {
   final String title;
   const MyHomePage({Key? key, required this.title}) : super(key: key);
@@ -81,7 +86,7 @@ class MyHomePage extends StatelessWidget {
     );
   }
 }
-
+/// Permet la smooth transition vers la page de connexion
 Route createRoute() {
   return PageRouteBuilder(
     pageBuilder: (context, animation, secondaryAnimation) => Login(),

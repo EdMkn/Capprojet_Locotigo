@@ -5,11 +5,13 @@ import 'main.dart';
 import 'create_account.dart';
 import 'password.dart';
 
+/// Page dédiée à la connexion
 class Login extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
   String email = '';
   String password = '';
 
+ ///Permet de vérifier si le client est dans la base de données
   validationForm() {
     if (_formKey.currentState != null) {
       if (_formKey.currentState!.validate()) {
@@ -33,6 +35,7 @@ class Login extends StatelessWidget {
     }
   }
 
+  /// Permet de vérifier si l'email se trouve dans la bdd
   dynamic getId(String email) async {
     QueryBuilder<ParseObject> queryClient =
         QueryBuilder<ParseObject>(ParseObject('client'))

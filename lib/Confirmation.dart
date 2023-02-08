@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'main.dart';
-
 import 'login.dart';
 
+/// Cette classe représente la page de confirmation d'email
+/// 
+/// Le cas de figure est la creation de compte
 class Page5 extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
 

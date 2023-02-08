@@ -5,12 +5,13 @@ import 'main.dart';
 import 'login.dart';
 import 'forgotten_password.dart';
 
+///Cette classe s'occupe de la reinitialisation de mots de passe
 class Page6 extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
   TextEditingController inputcontroller = TextEditingController();
 
   bool valide = false;
-
+  /// Valide les email
   void Validate(String email) {
     bool isvalid = EmailValidator.validate(email);
     print(isvalid);
