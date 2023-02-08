@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
+import 'package:email_validator/email_validator.dart';
 import 'dart:async';
 import 'login.dart';
 import 'main.dart';
@@ -20,6 +21,9 @@ class _Page3State extends State<Page3> {
   bool valuesecond = false;
   bool isChecked = false;
   //final todoController = TextEditingController();
+  TextEditingController _controller = TextEditingController();
+  //Trigger for generating the hash code for the entered password
+  bool password_hash_trigger = false;
 
   String username = '';
   String pswd = '';
@@ -34,6 +38,10 @@ class _Page3State extends State<Page3> {
     if (_formKey.currentState != null) {
       //si formkey est validé
       if (_formKey.currentState!.validate()) {
+        
+      /*setState(() {
+                password_hash_trigger = true;
+              });*/
         _formKey.currentState!.save();
 
         debugPrint('$username');
@@ -191,6 +199,7 @@ class _Page3State extends State<Page3> {
                   hintText: 'Mot de passe',
                 ),
                 keyboardType: TextInputType.text,
+                controller: _controller,
                 obscureText: true,
                 onSaved: (val) => pswd = val ?? '',
               ),
@@ -221,6 +230,7 @@ class _Page3State extends State<Page3> {
                   hintText: 'Entrez le nouveau mot de passe a nouveau',
                 ),
                 keyboardType: TextInputType.text,
+                controller: _controller,
                 obscureText: true,
                 validator: (val) {
                   //debugPrint(identical(val ?? '', pswd).toString());
@@ -287,6 +297,10 @@ class _Page3State extends State<Page3> {
                 keyboardType: TextInputType.emailAddress,
                 autocorrect: true,
                 autofocus: true,
+                validator: (val) =>
+                    EmailValidator.validate(val ?? '', true, true)
+                        ? null
+                        : "Erreur dans l'email",
                 onSaved: (val) => email = val ?? '',
               ),
               SizedBox(
