@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:maps_launcher/maps_launcher.dart';
 
+///carte permettant d'avoir la liste des magasins vendant des produits fermiers
 class Map extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

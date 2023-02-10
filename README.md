@@ -38,3 +38,10 @@ samples, guidance on mobile development, and a full API reference.
 - Join the discussion and conversation on https://flutlab.io/residents
 
 If you have some questions regarding FlutLab, you can ask on https://flutlab.io/faq
+<!-->
+## installing dependanciesbwith flutter pub get
+
+## To do :
+Mail control
+passin
+

@@ -5,6 +5,7 @@ import 'dart:async';
 import 'main.dart';
 import 'Confirmation.dart';
 
+/// Classe de création de compte producteur
 class Page4 extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
 

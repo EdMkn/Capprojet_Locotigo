@@ -1,9 +1,34 @@
 import 'package:flutter/material.dart';
+import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 import 'dart:async';
 import 'login.dart';
+import 'package:helloworld/create_account.dart';
+import 'password.dart';
+import 'Map.dart';
 
-void main() => runApp(MyApp());
+/// Permet la mise en marche de l'application
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  final keyApplicationId = 'NLIO024azfH9pJrmOu6UblCeAxjqfJEQP6yf8n7o';
+  final keyClientKey = 'i3AK1t4plvFcNjabmp080R5Jx4ourbkZyybaMvTw';
+  final keyParseServerUrl = 'https://parseapi.back4app.com';
 
+  //connexion au serveur
+  await Parse().initialize(keyApplicationId, keyParseServerUrl,
+      clientKey: keyClientKey, autoSendSessionId: true);
+
+   /*var firstObject = ParseObject('FirstClass')
+    ..set(
+        'message', 'Hey ! First message from Flutter. Parse is now connected');
+  await firstObject.save(); */
+  
+  //print('done');
+  runApp(MyApp());
+} 
+
+/// Cette classe represente la racine de l'application
+/// 
+/// Ici on retrouve les routes vers les differentes pages
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
@@ -15,18 +40,24 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       // Application name
 
-      title: 'Flutter Hello World',
+      title: 'Locotigo',
       // Application theme data, you can set the colors for the application as
       // you want
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
       // A widget which will be started on application startup
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      routes: {
+        '/': (context) => const MyHomePage(title: 'Flutter Demo Home Page'),
+        '/inscription': (context) => Page3(),
+        '/connexion': (context) => Login(),
+        '/passeport': (context) => Page6(),
+      },
+      initialRoute: '/',
     );
   }
 }
-
+/// Représente la première page qui s'affiche au lancement de l'application
 class MyHomePage extends StatelessWidget {
   final String title;
   const MyHomePage({Key? key, required this.title}) : super(key: key);
@@ -55,7 +86,7 @@ class MyHomePage extends StatelessWidget {
     );
   }
 }
-
+/// Permet la smooth transition vers la page de connexion
 Route createRoute() {
   return PageRouteBuilder(
     pageBuilder: (context, animation, secondaryAnimation) => Login(),
