@@ -53,11 +53,11 @@ class _Page4State extends State<Page4> {
       ..set('password', nprod.password)
       ..set('adresse', nprod.adresse)
       ..set('email', nprod.email)
-      ..set('raison sociale', nprod.rsociale)
-      ..set('forme juridique', nprod.jurform)
-      ..set('activite', nprod.activite)
+      ..set('raison_sociale', nprod.rsociale)
+      ..set('forme_juridique', nprod.jurform)
+      ..set('siret', nprod.getSiret)
       ..set('ape', nprod.ape)
-      ..set('num tva', nprod.n_tva);
+      ..set('num_tva', nprod.ntva);
     await todo.save();
   }
 
@@ -67,8 +67,8 @@ class _Page4State extends State<Page4> {
       backgroundColor:
           Color.alphaBlend(Color(0xffa6ec55), Colors.lightGreenAccent),
       body: Form(
+        key: _formKey,
         child: Center(
-          key: _formKey,
           child: Column(
             children: <Widget>[
               Align(
@@ -127,7 +127,7 @@ class _Page4State extends State<Page4> {
                 keyboardType: TextInputType.text,
                 validator: (val) =>
                     {val ?? ''}.length == 0 ? "Validez votre raison sociale" : null,
-                onSaved: (val) => nprod.rsociale = val ?? '',
+                onSaved: (val) => nprod.setRsociale = val ?? '',
                 
               ),
               SizedBox(
@@ -159,7 +159,7 @@ class _Page4State extends State<Page4> {
                   keyboardType: TextInputType.text,
                   validator: (val) =>
                     {val ?? ''}.length == 0 ? "Validez votre forme juridique" : null,
-                onSaved: (val) => nprod.jurform = val ?? '',
+                onSaved: (val) => nprod.setJurform = val ?? '',
                 
                 ),
               SizedBox(
@@ -190,8 +190,8 @@ class _Page4State extends State<Page4> {
                   ),
                   keyboardType: TextInputType.number,
                   validator: (val) =>
-                    {val ?? ''}.length != 13 ? "Validez votre Siret" : null,
-                onSaved: (val) => nprod.siret = val ?? '',
+                    {val ?? ''}.length == 0 ? "Validez votre Siret" : null,
+                onSaved: (val) => nprod.setSiret = val ?? '',
                 
                 ),
               SizedBox(
@@ -223,7 +223,7 @@ class _Page4State extends State<Page4> {
                   keyboardType: TextInputType.text,
                   validator: (val) =>
                     {val ?? ''}.length == 0 ? "Validez votre ape" : null,
-                onSaved: (val) => nprod.ape = val ?? '',
+                onSaved: (val) => nprod.setApe = val ?? '',
                 
                 ),
               SizedBox(
@@ -255,7 +255,7 @@ class _Page4State extends State<Page4> {
                   keyboardType: TextInputType.number,
                   validator: (val) =>
                     {val ?? ''}.length == 0 ? "Validez votre nom" : null,
-                onSaved: (val) => nprod.n_tva = val ?? '',
+                onSaved: (val) => nprod.ntva = val ?? '',
                 
                 ),
               SizedBox(
@@ -263,12 +263,7 @@ class _Page4State extends State<Page4> {
                 height: 20,
               ),
               ElevatedButton(
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (BuildContext context) {
-                    return Page5();
-                  }));
-                },
+                onPressed: validationForm,
                 child: Text('Suivant'),
                 style: ElevatedButton.styleFrom(
                     shape: StadiumBorder(), primary: Color(0xe2ff1e00)),

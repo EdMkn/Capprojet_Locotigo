@@ -63,7 +63,7 @@ class _Page3State extends State<Page3> {
         _formKey.currentState!.reset();
         
         if (checkboxValue) {
-          Producteur nprod =  Producteur(nclient.email, nclient.username, nclient.password, nclient.adresse, '', '', '','','','');
+          Producteur nprod =  Producteur(nclient.email, nclient.username, nclient.password, nclient.adresse, '', '', '','','');
           Navigator.push(context,
               MaterialPageRoute(builder: (BuildContext context) {
             return Page4(nprod);
