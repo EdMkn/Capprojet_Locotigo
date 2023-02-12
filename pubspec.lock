@@ -253,6 +253,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.3.1"
+  fast_base58:
+    dependency: transitive
+    description:
+      name: fast_base58
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.2.1"
   ffi:
     dependency: transitive
     description:
@@ -291,6 +298,48 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.4"
+  flutter_secure_storage:
+    dependency: "direct main"
+    description:
+      name: flutter_secure_storage
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "5.1.2"
+  flutter_secure_storage_linux:
+    dependency: transitive
+    description:
+      name: flutter_secure_storage_linux
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.1.3"
+  flutter_secure_storage_macos:
+    dependency: transitive
+    description:
+      name: flutter_secure_storage_macos
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.1.2"
+  flutter_secure_storage_platform_interface:
+    dependency: transitive
+    description:
+      name: flutter_secure_storage_platform_interface
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.1"
+  flutter_secure_storage_web:
+    dependency: transitive
+    description:
+      name: flutter_secure_storage_web
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.1.1"
+  flutter_secure_storage_windows:
+    dependency: transitive
+    description:
+      name: flutter_secure_storage_windows
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.1.3"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -327,6 +376,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.2.0"
+  hash_password:
+    dependency: "direct main"
+    description:
+      name: hash_password
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.3"
   http:
     dependency: transitive
     description:
@@ -429,6 +485,13 @@ packages:
     dependency: transitive
     description:
       name: mime_type
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.0"
+  nested:
+    dependency: transitive
+    description:
+      name: nested
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.0"
@@ -586,6 +649,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.2.4"
+  provider:
+    dependency: "direct main"
+    description:
+      name: provider
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "6.0.5"
   pub_semver:
     dependency: transitive
     description:
