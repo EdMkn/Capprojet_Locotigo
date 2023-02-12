@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:helloworld/Confirmation.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 import 'dart:async';
 import 'login.dart';
@@ -51,6 +52,7 @@ class MyApp extends StatelessWidget {
         '/': (context) => const MyHomePage(title: 'Flutter Demo Home Page'),
         '/inscription': (context) => Page3(),
         '/connexion': (context) => Login(),
+        '/confirmation':((context) => Page5()),
         '/passeport': (context) => Page6(),
       },
       initialRoute: '/',

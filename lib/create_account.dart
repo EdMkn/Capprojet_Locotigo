@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 import 'package:email_validator/email_validator.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:helloworld/models/clients.dart';
 import 'dart:async';
 import 'login.dart';
 import 'main.dart';
@@ -13,6 +15,7 @@ class Page3 extends StatefulWidget {
   _Page3State createState() => _Page3State();
 }
 
+
 /// Controle de creation de compte client
 class _Page3State extends State<Page3> {
   /// cle de formulaire
@@ -20,17 +23,22 @@ class _Page3State extends State<Page3> {
   bool valuefirst = false;
   bool valuesecond = false;
   bool isChecked = false;
-  //final todoController = TextEditingController();
-  TextEditingController _controller = TextEditingController();
   //Trigger for generating the hash code for the entered password
   bool password_hash_trigger = false;
 
+
+  Consommateur nclient  = Consommateur('', '', '', '');
   String username = '';
   String pswd = '';
   String adresse = '';
   String email = '';
   /// Verifie si l'utilisateur est client ou producteur
   bool checkboxValue = false;
+
+  final _storage = new FlutterSecureStorage();
+  final TextEditingController _usernamecontroller = TextEditingController();
+  final TextEditingController _passwordcontroller = TextEditingController();
+
 
   ///Permet d'envoyer le client dans la base de données
   validationForm() {
@@ -44,22 +52,25 @@ class _Page3State extends State<Page3> {
               });*/
         _formKey.currentState!.save();
 
-        debugPrint('$username');
-        debugPrint('$pswd');
-        debugPrint('$adresse');
-        debugPrint('$email');
+        debugPrint(nclient.username);
+        debugPrint(nclient.password);
+        debugPrint(nclient.adresse);
+        debugPrint(nclient.email);
         debugPrint('$checkboxValue');
 
+       // await _storage.write(key: "KEY USERNAME", value: _usernamecontroller.text);
+        //await _storage.write(key: "KEY_PASSWORD", value: _passwordcontroller.text);
         _formKey.currentState!.reset();
         
-        if (checkboxValue)
+        if (checkboxValue) {
+          Producteur nprod =  Producteur(nclient.email, nclient.username, nclient.password, nclient.adresse, '', '', '','','','');
           Navigator.push(context,
               MaterialPageRoute(builder: (BuildContext context) {
-            return Page4();
+            return Page4(nprod);
           }));
-        else {
+        } else {
           saveInscription("test1");
-          Navigator.pushNamed(context, '/connexion');
+          Navigator.pushNamed(context, '/confirmation');
         }
       } else {
         debugPrint('Error...');
@@ -72,10 +83,10 @@ class _Page3State extends State<Page3> {
   ///Enregistre le compte créé dans la bdd
   Future<void> saveInscription(String title) async {
     final todo = ParseObject('client')
-      ..set('username', username)
-      ..set('password', pswd)
-      ..set('adresse', adresse)
-      ..set('email', email)
+      ..set('username', nclient.username)
+      ..set('password', nclient.password)
+      ..set('adresse', nclient.adresse)
+      ..set('email', nclient.email)
       ..set('isProd', checkboxValue);
     await todo.save();
   }
@@ -166,9 +177,10 @@ class _Page3State extends State<Page3> {
                   hintText: 'Nom utilisateurs',
                 ),
                 keyboardType: TextInputType.text,
+                controller: _usernamecontroller,
                 validator: (val) =>
                     {val ?? ''}.length == 0 ? "Validez votre nom" : null,
-                onSaved: (val) => username = val ?? '',
+                onSaved: (val) => nclient.username = val ?? '',
                 //onSubmitted: (value) => {},
               ),
 //              ),
@@ -199,9 +211,9 @@ class _Page3State extends State<Page3> {
                   hintText: 'Mot de passe',
                 ),
                 keyboardType: TextInputType.text,
-                controller: _controller,
+                controller: _passwordcontroller,
                 obscureText: true,
-                onSaved: (val) => pswd = val ?? '',
+                onSaved: (val) => nclient.password = val ?? '',
               ),
               SizedBox(
                 //Use of SizedBox
@@ -266,7 +278,7 @@ class _Page3State extends State<Page3> {
                   hintText: 'Ex:176 Grande rue',
                 ),
                 keyboardType: TextInputType.text,
-                onSaved: (val) => adresse = val ?? '',
+                onSaved: (val) => nclient.adresse = val ?? '',
               ),
               SizedBox(
                 //Use of SizedBox
@@ -301,7 +313,7 @@ class _Page3State extends State<Page3> {
                     EmailValidator.validate(val ?? '', true, true)
                         ? null
                         : "Erreur dans l'email",
-                onSaved: (val) => email = val ?? '',
+                onSaved: (val) => nclient.email = val ?? '',
               ),
               SizedBox(
                 //Use of SizedBox
