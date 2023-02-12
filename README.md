@@ -39,9 +39,15 @@ samples, guidance on mobile development, and a full API reference.
 
 If you have some questions regarding FlutLab, you can ask on https://flutlab.io/faq
 <!-->
-## installing dependanciesbwith flutter pub get
+## installing dependancies with flutter pub get
 
 ## To do :
 Mail control
-passin
+Champ Control
+Map integration
+Backend restructuration
+
+# How to generate an APK
+
+ 
 

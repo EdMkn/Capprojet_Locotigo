@@ -26,6 +26,9 @@ dependencies:
   maps_launcher: ^2.0.1
   toggle_switch: ^1.2.0
   email_validator: '^2.1.16'
+  hash_password: ^0.0.3
+  flutter_secure_storage: ^5.0.2
+  provider: ^6.0.0
 
     
 
