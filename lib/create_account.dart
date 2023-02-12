@@ -33,7 +33,7 @@ class _Page3State extends State<Page3> {
   String adresse = '';
   String email = '';
   /// Verifie si l'utilisateur est client ou producteur
-  bool checkboxValue = false;
+  bool checkboxValue = true;
 
   final _storage = new FlutterSecureStorage();
   final TextEditingController _usernamecontroller = TextEditingController();
